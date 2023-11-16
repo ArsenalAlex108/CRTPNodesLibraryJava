@@ -18,11 +18,8 @@ import java.util.function.Supplier;
  */
 public final class TransformedIterable<TIn, TOut> implements Iterable<TOut> {
 
-    @Override
-    public String toString() {
-        return newIterable.toString();
-    }
-
+     
+    private final Iterable<TOut> newIterable;
     public TransformedIterable(Iterable<TIn> originalIterable, Function<TIn, TOut> transformer, Supplier<Collection<TOut>> factory) {
         
         if (originalIterable == null) throw new IllegalArgumentException("originalIterable");
@@ -38,8 +35,10 @@ public final class TransformedIterable<TIn, TOut> implements Iterable<TOut> {
         
         newIterable = list;
     }
-     
-    private final Iterable<TOut> newIterable;
+    @Override
+    public String toString() {
+        return newIterable.toString();
+    }
 
     @Override
     public Iterator<TOut> iterator() {

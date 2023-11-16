@@ -108,4 +108,7 @@ public class ReadOnlyTreeNodeExtensions {
 
         return new ReadOnlyStringTreeNode(self.displayName(), newChildren);
     }
+
+    private ReadOnlyTreeNodeExtensions() {
+    }
 }
